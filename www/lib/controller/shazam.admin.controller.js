@@ -21,10 +21,24 @@
     };
 
     $scope.appState = {};
-    console.log($scope.appState)
+
+
+    $scope.toggleVisibile = function (source) {
+      $scope.appState[source].visble = !$scope.appState[source].visble;
+      var msg = {
+        pwd: "DdD15baNXUq63lnSRksGFtejgMUI6TFV9ZIgZr79bvkxr1HA1x",
+        appState: $scope.appState
+      };
+      socket.emit("Admin Update", msg);
+    };
+
+    $scope.toggleEnable = function (source) {
+
+    };
+
     $scope.shazam = function (source) {
       shazamMsg.location = source;
-      console.log("Emiitted Shazam");
+      console.log("Emitted Shazam");
       socket.emit("Shazam!", shazamMsg);
     };
 
