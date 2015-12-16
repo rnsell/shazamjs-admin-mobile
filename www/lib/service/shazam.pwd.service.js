@@ -7,7 +7,7 @@
   var app = angular.module("shazamjs-admin");
 
   function pwdService(){
-    return "";
+    return "WtxD2cWU1BnvPexwKe0tU7YVngH7LYyNVgsiR6Ax0V5Vym1yCENpw5TLMxC1s1RzAwxXe9JV3tXlr4u1dhlxcFneTbdAACz5UqRw";
   }
 
   app.factory("ShazamPwd", [pwdService]);

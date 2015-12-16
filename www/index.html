@@ -28,6 +28,7 @@
   <!-- your app's js -->
   <script src="app.js"></script>
   <script src="./lib/controller/shazam.admin.controller.js"></script>
+  <script src="./lib/service/shazam.pwd.service.js"></script>
   <!-- <script src="lib/services.js"></script> -->
 </head>
 
@@ -42,8 +43,8 @@
       Website
     </div>
     <div class="button-bar">
-      <a class="button button-balanced">{{websiteApp.visibile === true ? "Invisible":"Visible"}}</a>
-      <a class="button button-calm">{{websiteApp.enable === true ? "Disable":"Enable"}}</a>
+      <a class="button button-balanced" ng-click="toggleVisibile('websiteApp')">{{appState.websiteApp.visible === true ? "Invisible" : "Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('websiteApp')">{{appState.websiteApp.enabled === true ? "Disable" : "Enable"}}</a>
       <a class="button button-assertive" ng-click="shazam('websiteApp')">Shazam!</a>
       <a class="button button-dark">Count: {{appState.websiteApp.count}}</a>
     </div>
@@ -51,8 +52,8 @@
       Desktop
     </div>
     <div class="button-bar">
-      <a class="button button-balanced">{{desktopApp.visibile === true ? "Invisible":"Visible"}}</a>
-      <a class="button button-calm">{{desktopApp.enable === true ? "Disable":"Enable"}}</a>
+      <a class="button button-balanced" ng-click="toggleVisibile('desktopApp')">{{appState.desktopApp.visible === true ? "Invisible" : "Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('desktopApp')">{{appState.desktopApp.enabled === true ? "Disable" : "Enable"}}</a>
       <a class="button button-assertive" ng-click="shazam('desktopApp')">Shazam!</a>
       <a class="button button-dark">Count: {{appState.desktopApp.count}}</a>
     </div>
@@ -60,8 +61,8 @@
       Hardware
     </div>
     <div class="button-bar">
-      <a class="button button-balanced">{{hardwareApp.visibile === true ? "Invisible":"Visible"}}</a>
-      <a class="button button-calm">{{hardwareApp.enable === true ? "Disable":"Enable"}}</a>
+      <a class="button button-balanced" ng-click="toggleVisibile('hardwareApp')">{{appState.hardwareApp.visible === true ? "Invisible":"Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('hardwareApp')">{{appState.hardwareApp.enabled === true ? "Disable":"Enable"}}</a>
       <a class="button button-assertive" ng-click="shazam('hardwareApp')">Shazam!</a>
       <a class="button button-dark">Count: {{appState.hardwareApp.count}}</a>
     </div>
@@ -69,8 +70,8 @@
       Console
     </div>
     <div class="button-bar">
-      <a class="button button-balanced">{{consoleApp.visibile === true ? "Invisible":"Visible"}}</a>
-      <a class="button button-calm">{{consoleApp.enable === true ? "Disable":"Enable"}}</a>
+      <a class="button button-balanced" ng-click="toggleVisibile('consoleApp')">{{appState.consoleApp.visible === true ? "Invisible" : "Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('consoleApp')">{{appState.consoleApp.enabled === true ? "Disable" : "Enable"}}</a>
       <a class="button button-assertive" ng-click="shazam('consoleApp')">Shazam!</a>
       <a class="button button-dark">Count: {{appState.consoleApp.count}}</a>
     </div>
@@ -78,13 +79,10 @@
       Mobile
     </div>
     <div class="button-bar">
-      <a class="button button-balanced">{{mobileApp.visibile === true ? "Invisible":"Visible"}}</a>
-      <a class="button button-calm">{{mobileApp.enable === true ? "Disable":"Enable"}}</a>
+      <a class="button button-balanced" ng-click="toggleVisibile('mobileApp')">{{appState.mobileApp.visible === true ? "Invisible" : "Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('mobileApp')">{{appState.mobileApp.enabled === true ? "Disable" : "Enable"}}</a>
       <a class="button button-assertive" ng-click="shazam('mobileApp')">Shazam!</a>
       <a class="button button-dark">Count: {{appState.mobileApp.count}}</a>
-    </div>
-    <div class="button">
-      Refresh
     </div>
   </div>
 

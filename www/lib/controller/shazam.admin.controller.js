@@ -6,7 +6,7 @@
 
   var app = angular.module("shazamjs-admin");
 
-  function ShazamAdminController($scope) {
+  function ShazamAdminController($scope, shazamPwd) {
     var socket = io("http://localhost:8080");
 
     var COREAPP = "coreApp",
@@ -24,16 +24,25 @@
 
 
     $scope.toggleVisibile = function (source) {
-      $scope.appState[source].visble = !$scope.appState[source].visble;
+      console.log("Toggle Visible");
+      console.log(shazamPwd);
+      console.log(source);
+      $scope.appState[source].visible = !$scope.appState[source].visible;
+      console.log($scope.appState);
       var msg = {
-        pwd: "DdD15baNXUq63lnSRksGFtejgMUI6TFV9ZIgZr79bvkxr1HA1x",
+        pwd: shazamPwd,
         appState: $scope.appState
       };
       socket.emit("Admin Update", msg);
     };
 
     $scope.toggleEnable = function (source) {
-
+      $scope.appState[source].enabled = !$scope.appState[source].enabled;
+      var msg = {
+        pwd: shazamPwd,
+        appState: $scope.appState
+      };
+      socket.emit("Admin Update", msg);
     };
 
     $scope.shazam = function (source) {
@@ -48,7 +57,7 @@
         var lastLocation = newState.lastEventSource;
 
         //Copy the app state
-        console.log(newState);
+        // console.log(newState);
         $scope.appState = newState;
       });
     }
@@ -64,5 +73,5 @@
 
   }
 
-  app.controller('shazam.admin.controller', ["$scope", ShazamAdminController]);
+  app.controller('shazam.admin.controller', ["$scope", "ShazamPwd", ShazamAdminController]);
 }());
