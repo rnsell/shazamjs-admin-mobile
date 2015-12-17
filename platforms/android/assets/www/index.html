@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <link href="angular_modules/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+  <!--socket.io-->
+  <script src="./angular_modules/socket-io/socket.io.js"></script>
+
+  <!-- ionic/angularjs js -->
+  <script src="./angular_modules/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="app.js"></script>
+  <script src="./lib/controller/shazam.admin.controller.js"></script>
+  <script src="./lib/service/shazam.pwd.service.js"></script>
+  <!-- <script src="lib/services.js"></script> -->
+</head>
+
+<body ng-app="shazamjs-admin" class="platform-android platform-cordova platform-webview">
+  <div ng-controller="shazam.admin.controller">
+    <div class="bar bar-header bar-light">
+      <h1 class="title">Shazam Admin</h1>
+    </div>
+    <br/>
+    <br/>
+    <div class="item item-divider">
+      Website
+    </div>
+    <div class="button-bar">
+      <a class="button button-balanced" ng-click="toggleVisibile('websiteApp')">{{appState.websiteApp.visible === true ? "Invisible" : "Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('websiteApp')">{{appState.websiteApp.enabled === true ? "Disable" : "Enable"}}</a>
+      <a class="button button-assertive" ng-click="shazam('websiteApp')">Shazam!</a>
+      <a class="button button-dark">Count: {{appState.websiteApp.count}}</a>
+    </div>
+    <div class="item item-divider">
+      Desktop
+    </div>
+    <div class="button-bar">
+      <a class="button button-balanced" ng-click="toggleVisibile('desktopApp')">{{appState.desktopApp.visible === true ? "Invisible" : "Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('desktopApp')">{{appState.desktopApp.enabled === true ? "Disable" : "Enable"}}</a>
+      <a class="button button-assertive" ng-click="shazam('desktopApp')">Shazam!</a>
+      <a class="button button-dark">Count: {{appState.desktopApp.count}}</a>
+    </div>
+    <div class="item item-divider">
+      Hardware
+    </div>
+    <div class="button-bar">
+      <a class="button button-balanced" ng-click="toggleVisibile('hardwareApp')">{{appState.hardwareApp.visible === true ? "Invisible":"Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('hardwareApp')">{{appState.hardwareApp.enabled === true ? "Disable":"Enable"}}</a>
+      <a class="button button-assertive" ng-click="shazam('hardwareApp')">Shazam!</a>
+      <a class="button button-dark">Count: {{appState.hardwareApp.count}}</a>
+    </div>
+    <div class="item item-divider">
+      Console
+    </div>
+    <div class="button-bar">
+      <a class="button button-balanced" ng-click="toggleVisibile('consoleApp')">{{appState.consoleApp.visible === true ? "Invisible" : "Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('consoleApp')">{{appState.consoleApp.enabled === true ? "Disable" : "Enable"}}</a>
+      <a class="button button-assertive" ng-click="shazam('consoleApp')">Shazam!</a>
+      <a class="button button-dark">Count: {{appState.consoleApp.count}}</a>
+    </div>
+    <div class="item item-divider">
+      Mobile
+    </div>
+    <div class="button-bar">
+      <a class="button button-balanced" ng-click="toggleVisibile('mobileApp')">{{appState.mobileApp.visible === true ? "Invisible" : "Visible"}}</a>
+      <a class="button button-calm" ng-click="toggleEnable('mobileApp')">{{appState.mobileApp.enabled === true ? "Disable" : "Enable"}}</a>
+      <a class="button button-assertive" ng-click="shazam('mobileApp')">Shazam!</a>
+      <a class="button button-dark">Count: {{appState.mobileApp.count}}</a>
+    </div>
+  </div>
+
+</body>
+
+</html>
